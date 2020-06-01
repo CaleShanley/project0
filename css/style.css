@@ -1,0 +1,18 @@
+.container {
+  max-width: 960px; /* lazy responsice container */
+  background-color: white;
+  margin: auto; /* Horizontal centering */
+}
+
+header {
+  text-align: center;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.start-menu {
+  text-align: center;
+}
