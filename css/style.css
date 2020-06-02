@@ -1,7 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Press Start 2P', cursive;
+}
+
 .container {
   max-width: 960px; /* lazy responsice container */
   background-color: white;
   margin: auto; /* Horizontal centering */
+  background-color: grey;
+}
+
+body {
+  background-color: grey;
 }
 
 header {
@@ -11,8 +23,35 @@ header {
 table {
   margin-left: auto;
   margin-right: auto;
+  border: 1px solid black;
+}
+
+td:hover {
+  cursor: pointer;
+  background: rgb(87, 87, 87);
+  opacity: 20%;
 }
 
 .start-menu {
   text-align: center;
+}
+
+.square {
+  font-size: 50px;
+  text-align: center;
+}
+
+.row-1 {
+  background-color: white;
+  border: 3px solid black;
+}
+
+tbody tr:nth-child(2n) {
+  background-color: white;
+  border: 3px solid black;
+}
+
+.row-3 {
+  background-color: white;
+  border: 3px solid black;
 }

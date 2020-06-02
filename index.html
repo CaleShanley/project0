@@ -3,37 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css"
+    />
     <link rel="stylesheet" href="css/style.css" />
     <title>Tic Tac Toe</title>
   </head>
   <body>
     <div class="container">
       <header>
-        <h1>Cales Tic Tac Toe</h1>
+        <h1>Tic Tac Toe</h1>
       </header>
-      <table border="1" width="500px" height="500px">
+      <table border="1" width="450px" height="525px">
         <tbody>
-          <tr>
-            <td id="block1"></td>
-            <td id="block2"></td>
-            <td id="block3"></td>
+          <tr class="row-1">
+            <td id="1" class="square"></td>
+            <td id="2" class="square"></td>
+            <td id="3" class="square"></td>
           </tr>
-          <tr>
-            <td id="block4"></td>
-            <td id="block5"></td>
-            <td id="block6"></td>
+          <tr class="row-2">
+            <td id="4" class="square"></td>
+            <td id="5" class="square"></td>
+            <td id="6" class="square"></td>
           </tr>
-          <tr>
-            <td id="block7"></td>
-            <td id="block8"></td>
-            <td id="block9"></td>
+          <tr class="row-3">
+            <td id="7" class="square"></td>
+            <td id="8" class="square"></td>
+            <td id="9" class="square"></td>
           </tr>
         </tbody>
       </table>
       <div class="start-menu">
-        <h1>Press the start button to play!</h1>
-        <button class="start-button" placeholder="Start">Start</button>
+        <h2>Press the RESET button to wipe the board!</h2>
+        <button class="start-button" placeholder="Start">RESET</button>
       </div>
     </div>
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="js/main.js"></script>
 </html>
