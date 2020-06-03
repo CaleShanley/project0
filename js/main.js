@@ -36,8 +36,6 @@ square.on('click', function () {
 
 // Check For Winning Combo
 
-const winner = fucntion()
-
 // Cannot choose Block twice
 // const checkSquare = function () {
 //   if ($(this).innerHTML === player1) {
