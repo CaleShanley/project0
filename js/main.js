@@ -1,5 +1,4 @@
-// Fun text jQuery
-$('h1').funText(33, ['#ea412c', '#0044f7', '#ea412c'])
+$('h1').funText(33, ['#ea412c', '#0044f7', '#ea412c']) // H1 fun text
 
 // Init game data
 let currentTurn = 1
@@ -14,7 +13,7 @@ $(document).ready(() => {
   function handleMove($element) {
     if ($element.text() === String.fromCharCode(160)) {
       if (currentTurn === 1) {
-        $element.html(player1) // Sets player 1 as X and player 2 as O
+        $element.html(player1) // Sets player 1 as 'X' and player 2 as 'O'
         $element.css('color', 'red')
         currentTurn++
       } else {
@@ -54,9 +53,9 @@ $(document).ready(() => {
     for (let i = 0; i < combos.length; i++) {
       const [a, b, c] = combos[i] // sets a,b,c the three numbers on the array so i.e, [0,1,2]
       if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-        // is a truthy falsy statement
+        // the first board[a] is checking if there is values in that particular square and the remainder of the condition makes sure they are all the same (either 'X' or 'O')
 
-        winnerDefault = board[a] // Determines which character Wins
+        winnerDefault = board[a] // Winning player either 'X' or 'O'
 
         // Confetti Effect for when you win
         function fire(particleRatio, opts) {
@@ -104,12 +103,15 @@ $(document).ready(() => {
           })
         }, 1500)
       }
-      // tried getting a draw to work but couldn't
-
-      // $.sweetModal({
-      //   content: `IT'S A DRAW, NO ONE WINS!`,
-      //   icon: $.sweetModal.ICON_WARNING
-      // })
+    }
+    if (!board.includes(false)) {
+      /// always have 9 values. IF the values doesn't include FALSE, then it’s a draw. relates to line 41 - returning push false.
+      const modal = setTimeout(function () {
+        $.sweetModal({
+          content: `IT'S A DRAW, NO ONE WINS! `,
+          icon: $.sweetModal.ICON_WARNING
+        })
+      }, 1000)
     }
   }
 
