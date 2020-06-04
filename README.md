@@ -41,19 +41,20 @@ I spent most of my time fiddling around with getting the code to check if the pl
 I found a truthy / falsey statement online and used that to determine who would win.
 Basically the code loops through the winning combos
 
-[0, 1, 2],
-[3, 4, 5],
-[6, 7, 8],
-[0, 3, 6],
-[1, 4, 7],
-[2, 5, 8],
-[0, 4, 8],
-[2, 4, 6]
+`[0, 1, 2]`,
+`[3, 4, 5]`,
+`[6, 7, 8]`,
+`[0, 3, 6]`,
+`[1, 4, 7]`,
+`[2, 5, 8]`,
+`[0, 4, 8]`,
+`[2, 4, 6]`
 
-<const [a, b, c] = combos[i]>
-sets a,b,c the three numbers on the array so i.e, [0,1,2] and then
-<if (board[a] && board[a] === board[b] && board[a] === board[c]) >
-the first <board[a]> is checking if there is a value in that particular square and the remainder of the condition makes sure they are all the same type (either X or O). Once i got that i added a modal to let the users know who won.
+`const [a, b, c] = combos[i]` sets a,b,c the three numbers on the array so i.e, `[0,1,2]` and then
+
+`if (board[a] && board[a] === board[b] && board[a] === board[c])`
+
+the first `board[a]` is checking if there is a value in that particular square and the remainder of the condition makes sure they are all the same type (either X or O). Once i got that i added a modal to let the users know who won.
 
 I added a jQuery plugin to get the confetti effect when the user won as well.
 
