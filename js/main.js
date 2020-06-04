@@ -7,6 +7,7 @@ let currentTurn = 1
 const player1 = 'X'
 const player2 = 'O'
 let board = []
+const reset = $('.reset-button')
 
 $(document).ready(() => {
   console.log('ready')
@@ -34,7 +35,10 @@ $(document).ready(() => {
         board.push(false)
       }
     }
+    console.log(board)
   }
+
+  // reset board
 
   const checkWinner = function () {
     const combos = [
