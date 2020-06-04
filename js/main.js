@@ -97,14 +97,15 @@ $(document).ready(() => {
             icon: $.sweetModal.ICON_SUCCESS
           })
         }, 1500)
-      } else if ($('square' !== '')) {
-        $.sweetModal({
-          content: `IT'S A DRAW, NO ONE WINS!`,
-          icon: $.sweetModal.ICON_WARNING
-        })
+      } else {
       }
     }
   }
+
+  // if ($('square' !== '')) {
+  //   $.sweetModal({
+  //     content: `IT'S A DRAW, NO ONE WINS!`,
+  //     icon: $.sweetModal.ICON_WARNING
 
   // Reset bUTTON
 
