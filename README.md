@@ -23,10 +23,6 @@
      .      ..      .         [___/ \___]
      .    0 .. 0    .         <---> <--->
 
-/\/\. . . ./\/\ [..][..]
-/ / / .../| |\... \ \ \ _[\_\_][__]_
-/ / / \/ \ \ \ [____> <____]
-
 This was the first Porject of the course and was quite fun and confusing. It was pretty cool to see how many different would could get the same outcome. I tried to implement everything i've learned over the past couple of weeks into this project such as
 
 - HTML
