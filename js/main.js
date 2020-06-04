@@ -6,6 +6,7 @@ $('h1').funText(33, ['#ea412c', '#0044f7', '#ea412c'])
 let currentTurn = 1
 const player1 = 'X'
 const player2 = 'O'
+let winnerDefault = ''
 let board = []
 const reset = $('.reset-button')
 
@@ -39,7 +40,7 @@ $(document).ready(() => {
 
   const checkWinner = function () {
     const combos = [
-      [0, 1, 2],
+      [0, 1, 2], // Winning grid combos for tic tac toe
       [3, 4, 5],
       [6, 7, 8],
       [0, 3, 6],
@@ -49,9 +50,14 @@ $(document).ready(() => {
       [2, 4, 6]
     ]
 
+    // react way to get the winning combo
     for (let i = 0; i < combos.length; i++) {
-      const [a, b, c] = combos[i]
+      const [a, b, c] = combos[i] // sets a,b,c the three numbers on the array so i.e, [0,1,2]
       if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+        // is a truthy falsy statement
+
+        winnerDefault = board[a] // Determines which character Wins
+
         // Confetti Effect for when you win
         function fire(particleRatio, opts) {
           setTimeout(function () {
@@ -82,25 +88,21 @@ $(document).ready(() => {
           spread: 120,
           startVelocity: 45
         })
+
+        // Checking which player won
+
         const modal = setTimeout(function () {
           $.sweetModal({
-            content: `WINNER WINNER CHICKEN DINNER!`,
+            content: `PLAYER ${winnerDefault} WON, WINNER WINNER CHICKEN DINNER! `,
             icon: $.sweetModal.ICON_SUCCESS
           })
         }, 1500)
       } else {
+        // else if statement for cats game
+        // is board a empty string
+        //
         // console.log(board);
       }
-    }
-  }
-
-  const declareWinner = function (winner) {
-    if (player1 === counter % 2) {
-      winner = 'player 1'
-      playerOnescore++
-    } else {
-      winner = 'player 2'
-      playerTwoscore++
     }
   }
 
