@@ -8,6 +8,7 @@ const player1 = 'X'
 const player2 = 'O'
 let winnerDefault = ''
 let board = []
+let allBoxes = $('.square')
 const reset = $('.reset-button')
 
 $(document).ready(() => {
@@ -89,25 +90,26 @@ $(document).ready(() => {
           startVelocity: 45
         })
 
-        // Checking which player won
-
+        // Displays on screen who won
         const modal = setTimeout(function () {
           $.sweetModal({
             content: `PLAYER ${winnerDefault} WON, WINNER WINNER CHICKEN DINNER! `,
             icon: $.sweetModal.ICON_SUCCESS
           })
         }, 1500)
-      } else {
       }
+      // $.sweetModal({
+      //   content: `IT'S A DRAW, NO ONE WINS!`,
+      //   icon: $.sweetModal.ICON_WARNING
+      // })
     }
   }
 
-  // if ($('square' !== '')) {
-  //   $.sweetModal({
-  //     content: `IT'S A DRAW, NO ONE WINS!`,
-  //     icon: $.sweetModal.ICON_WARNING
-
   // Reset bUTTON
+  const reset = $('.reset-button')
+  reset.on('click', (event) => {
+    location.reload()
+  })
 
   const $squares = $('.square')
   $squares.on('click', (event) => {
