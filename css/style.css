@@ -47,7 +47,7 @@ td:hover {
 }
 
 tbody tr:nth-child(2n) {
-  background-color: white;
+  background-color: white; /* since im using a table theme the middle row / child was a name */
   border: 3px solid black;
 }
 
