@@ -97,14 +97,16 @@ $(document).ready(() => {
             icon: $.sweetModal.ICON_SUCCESS
           })
         }, 1500)
-      } else {
-        // else if statement for cats game
-        // is board a empty string
-        //
-        // console.log(board);
+      } else if ($('square' !== '')) {
+        $.sweetModal({
+          content: `IT'S A DRAW, NO ONE WINS!`,
+          icon: $.sweetModal.ICON_WARNING
+        })
       }
     }
   }
+
+  // Reset bUTTON
 
   const $squares = $('.square')
   $squares.on('click', (event) => {
