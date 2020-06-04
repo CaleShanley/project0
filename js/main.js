@@ -2,63 +2,71 @@
 $('h1').funText(33, ['#ea412c', '#0044f7', '#ea412c'])
 /////////////////////////////////////
 
-// Add Classes (Noughts / Crosses)
+// Init game data
+let currentTurn = 1
 const player1 = 'X'
 const player2 = 'O'
-let currentTurn = 1
-const square = $('.square')
-const winningCombos = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6]
-]
+let board = []
 
-// On Click puts 'X' or 'O' in
-square.on('click', function () {
-  if ($(this).text() === String.fromCharCode(160)) {
-    // Converting ascii character from Non-breaking space to a string to compare it
-    if (currentTurn === 1) {
-      event.target.innerHTML = player1
-      event.target.style.color = 'red'
-      currentTurn++
-    } else {
-      event.target.innerHTML = player2
-      event.target.style.color = 'blue'
-      currentTurn--
+$(document).ready(() => {
+  console.log('ready')
+  function handleMove($element) {
+    if ($element.text() === String.fromCharCode(160)) {
+      if (currentTurn === 1) {
+        $element.html(player1)
+        $element.css('color', 'red')
+        currentTurn++
+      } else {
+        $element.html(player2)
+        $element.css('color', 'blue')
+        currentTurn--
+      }
     }
   }
+
+  const updateBoard = function () {
+    board = []
+    for (let i = 0; i < 9; i++) {
+      const $square = $(`#${i}`)
+      if ($square.html() === player1 || $square.html() === player2) {
+        board.push($square.html())
+      } else {
+        board.push(false)
+      }
+    }
+  }
+
+  const checkWinner = function () {
+    const combos = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6]
+    ]
+
+    for (let i = 0; i < combos.length; i++) {
+      const [a, b, c] = combos[i]
+      if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+        // Winning Row
+        console.log('winner', board[a], board[b], board[c])
+      } else {
+        // console.log(board);
+      }
+    }
+  }
+
+  const $squares = $('.square')
+  $squares.on('click', (event) => {
+    handleMove($(event.target))
+    updateBoard()
+    checkWinner()
+  })
 })
 
-// Check For Winning Combo
+// Going to add a Confetti plugin for jQuery when you win
 
-// Cannot choose Block twice
-// const checkSquare = function () {
-//   if ($(this).innerHTML === player1) {
-//     let symbol = currentTurn
-//     $(this).innerHTML === symbol
-//   }
-//   currentTurn = !currentTurn
-// }
-
-// Figure out Winner
-//
-//     const winningCombos = [
-//       [0, 1, 2],
-//       [3, 4, 5],
-//       [6, 7, 8],
-//       [0, 3, 6],
-//       [1, 4, 7],
-//       [2, 5, 8],
-//       [0, 4, 8],
-//       [2, 4, 6]
-//     ]
-//   }
-// }
-// Reset the game / Reset Game
-
-// Score Board (NOT REQURIED)
+// Also need to reset
