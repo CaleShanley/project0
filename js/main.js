@@ -1,5 +1,6 @@
 // Fun text jQuery
 $('h1').funText(33, ['#ea412c', '#0044f7', '#ea412c'])
+/////////////////////////////////////
 
 // Init game data
 let currentTurn = 1
@@ -7,14 +8,19 @@ const player1 = 'X'
 const player2 = 'O'
 let winnerDefault = ''
 let board = []
-const reset = $('.reset-button')
+const $reset = $('.reset-button')
+
+
+$reset.on('click', function (){
+  location.reload();
+})
 
 $(document).ready(() => {
   console.log('ready')
   function handleMove($element) {
     if ($element.text() === String.fromCharCode(160)) {
       if (currentTurn === 1) {
-        $element.html(player1) // Sets player 1 as X and player 2 as O
+        $element.html(player1)
         $element.css('color', 'red')
         currentTurn++
       } else {
@@ -28,7 +34,6 @@ $(document).ready(() => {
   const updateBoard = function () {
     board = []
     for (let i = 0; i < 9; i++) {
-      // Once the user clicks on the selected square puts either 'X or 'O' in it
       const $square = $(`#${i}`)
       if ($square.html() === player1 || $square.html() === player2) {
         board.push($square.html())
@@ -76,7 +81,6 @@ $(document).ready(() => {
           spread: 60
         })
         fire(0.35, {
-          // this is just confetti effects
           spread: 100,
           decay: 0.91
         })
@@ -90,13 +94,8 @@ $(document).ready(() => {
           startVelocity: 45
         })
 
-        // This is confetti plugin (Needs to be set for it to work)
-        const count = 200
-        const defaults = {
-          origin: { y: 0.7 }
-        }
+        // Checking which player won
 
-        // Displays on screen who won
         const modal = setTimeout(function () {
           $.sweetModal({
             content: `PLAYER ${winnerDefault} WON, WINNER WINNER CHICKEN DINNER! `,
@@ -104,22 +103,25 @@ $(document).ready(() => {
           })
         }, 1500)
       }
-      // tried getting a draw to work but couldn't
-
-      // $.sweetModal({
-      //   content: `IT'S A DRAW, NO ONE WINS!`,
-      //   icon: $.sweetModal.ICON_WARNING
-      // })
     }
+    if (! board.includes(false)) {
+      const modal = setTimeout(function () {
+        $.sweetModal({
+          content: `DRAW! `,
+          icon: $.sweetModal.ICON_SUCCESS
+        })
+      }, 1500)
+    }
+
   }
 
-  // Reset Button
-  const reset = $('.reset-button')
-  reset.on('click', (event) => {
-    location.reload()
-  })
+  // if ($('square' !== '')) {
+  //   $.sweetModal({
+  //     content: `IT'S A DRAW, NO ONE WINS!`,
+  //     icon: $.sweetModal.ICON_WARNING
 
-  // Calls all the functions
+  // Reset bUTTON
+
   const $squares = $('.square')
   $squares.on('click', (event) => {
     handleMove($(event.target))
@@ -127,3 +129,11 @@ $(document).ready(() => {
     checkWinner()
   })
 })
+
+// Going to add a Confetti plugin for jQuery when you win
+const count = 200
+const defaults = {
+  origin: { y: 0.7 }
+}
+
+// Also need to reset
