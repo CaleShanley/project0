@@ -48,7 +48,6 @@ $(document).ready(() => {
       [0, 4, 8],
       [2, 4, 6]
     ]
-
     // react way to get the winning combo
     for (let i = 0; i < combos.length; i++) {
       const [a, b, c] = combos[i] // sets a,b,c the three numbers on the array so i.e, [0,1,2]

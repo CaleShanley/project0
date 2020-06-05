@@ -59,3 +59,11 @@ the first `board[a]` is checking if there is a value in that particular square a
 I added a jQuery plugin to get the confetti effect when the user won as well.
 
 Once i got all that out of the way i basically setup the _RESET_ to wipe the board and let the players start from scratch.
+
+Then i got back to the CSS. There isn't a lot there in terms of CSS but i wanted to make the theme for the game retro so i chose an `Press Start 2P` font to give it that theme.
+
+A lot of issues i had with the project was related to JavaScript, Mostly getting the game to show up as a draw if all nine boxes where filled. The problem was that i had set a `If Else` statement at the top of my code which set the value to be equal to false (`line 35`) if the box wasn't clicked.
+
+Since this happened i wasn't able to make another `If` statement on (`line 107`) to call the game a draw if they === ''. So instead of that i had to call it so the function (`if (!board.includes(false))`) didn't include false then it would draw the game.
+
+I'm planning on adding a **scoreboard**, **name changer** and even **AI** in the near future.
